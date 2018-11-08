@@ -7,17 +7,12 @@ from scipy.stats import pearsonr, spearmanr
 # load in data
 data = pd.read_csv("~/Documents/Git/kaggle_housing_prices_advanced_regression_techniques/train.csv")
 
-# examine correlations of features against response variable
-corr = data.corr()
-#sns.heatmap(corr)
-
 #sns.pairplot(data)
 columns_to_examine = ['OverallQual', 'YearBuilt', 'YearRemodAdd', 'MasVnrArea', 'GrLivArea', 'GarageCars', 'GarageArea', 'TotalBsmtSF', '1stFlrSF']
 
 # group features by data type
 numeric_data = data.select_dtypes(include='number')
 categorical_data = data.select_dtypes(include='object')
-#categorical_data = categorical_data.astype(str)
 
 # examine correlation and p value of each numerical feature against sales price
 pearson_correlations = {"column" : ["correlation", "p_value"]}
